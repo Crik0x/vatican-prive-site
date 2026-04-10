@@ -1,0 +1,81 @@
+{
+  "club": "Vatican Privé",
+  "last_updated": "2026-04-10",
+  "categories": [
+    { "id": "arte",         "label": "Arte & Cultura",    "icon": "🎨" },
+    { "id": "musica",       "label": "Musica",             "icon": "🎶" },
+    { "id": "gastronomia",  "label": "Gastronomia",        "icon": "🍷" },
+    { "id": "esclusivo",    "label": "Accesso Esclusivo",  "icon": "🔑" },
+    { "id": "benessere",    "label": "Benessere",          "icon": "✨" },
+    { "id": "networking",   "label": "Networking",         "icon": "🤝" },
+    { "id": "esperienza",   "label": "Esperienze Uniche",  "icon": "🌍" }
+  ],
+  "events": [
+    {
+      "id": "evt_001",
+      "title": "Cena Privata nei Giardini Vaticani",
+      "category": "gastronomia",
+      "date_start": "2026-05-15T20:00:00",
+      "date_end":   "2026-05-15T23:30:00",
+      "location": {
+        "name": "Giardini Vaticani, Roma",
+        "address": "Via della Conciliazione, Roma",
+        "maps_url": ""
+      },
+      "description_short": "Una cena esclusiva tra le sculture e i profumi dei Giardini Vaticani, con chef privato.",
+      "description_long": "Un'esperienza unica: la tavola apparecchiata al centro dei Giardini Vaticani dopo la chiusura al pubblico. Chef privato, vini selezionati, silenzio e bellezza assoluta.",
+      "image_url": "",
+      "capacity": 12,
+      "price_range": "€€€",
+      "booking_url": "https://wa.me/39XXXXXXXXXX?text=Vorrei%20prenotare%20la%20Cena%20Privata%20Giardini%20Vaticani%20-%2015%20maggio",
+      "booking_type": "whatsapp",
+      "status": "available",
+      "featured": true,
+      "google_calendar_event_id": ""
+    },
+    {
+      "id": "evt_002",
+      "title": "Apertura Notturna Musei Vaticani",
+      "category": "arte",
+      "date_start": "2026-05-22T21:00:00",
+      "date_end":   "2026-05-22T24:00:00",
+      "location": {
+        "name": "Musei Vaticani",
+        "address": "Viale Vaticano, Roma",
+        "maps_url": ""
+      },
+      "description_short": "I Musei Vaticani solo per voi, di notte. Cappella Sistina senza folla, nella luce giusta.",
+      "description_long": "Accesso esclusivo notturno ai Musei Vaticani con guida d'arte privata. La Cappella Sistina vissuta nel silenzio totale, illuminata come non l'avete mai vista.",
+      "image_url": "",
+      "capacity": 20,
+      "price_range": "€€€",
+      "booking_url": "https://wa.me/39XXXXXXXXXX?text=Vorrei%20prenotare%20l%27Apertura%20Notturna%20Musei%20Vaticani%20-%2022%20maggio",
+      "booking_type": "whatsapp",
+      "status": "available",
+      "featured": true,
+      "google_calendar_event_id": ""
+    },
+    {
+      "id": "evt_003",
+      "title": "Concerto da Camera a Palazzo",
+      "category": "musica",
+      "date_start": "2026-06-05T19:30:00",
+      "date_end":   "2026-06-05T22:00:00",
+      "location": {
+        "name": "Palazzo Storico Privato, Roma",
+        "address": "Roma, Centro Storico",
+        "maps_url": ""
+      },
+      "description_short": "Quartetto d'archi in un palazzo nobiliare del '600. Trenta ospiti, un'acustica irripetibile.",
+      "description_long": "Un quartetto d'archi internazionale esegue Beethoven e Schubert nella sala affrescata di un palazzo nobiliare romano del XVII secolo. Trenta ospiti al massimo.",
+      "image_url": "",
+      "capacity": 30,
+      "price_range": "€€",
+      "booking_url": "https://wa.me/39XXXXXXXXXX?text=Vorrei%20prenotare%20il%20Concerto%20da%20Camera%20-%205%20giugno",
+      "booking_type": "whatsapp",
+      "status": "available",
+      "featured": false,
+      "google_calendar_event_id": ""
+    }
+  ]
+}
