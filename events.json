@@ -167,7 +167,7 @@
         "maps_url": ""
       },
       "description_override": "Edizione di maggio. Tema: costruire reti che durano.",
-      "image_override": "",
+      "image_override": "https://static.tildacdn.com/tild6333-3935-4236-b563-323833626135/photo-1472759153518-.jpg",
       "capacity": 12,
       "booking_url": "https://wa.me/39XXXXXXXXXX?text=Vorrei%20prenotare%20Il%20Conclave%20-%2024%20maggio",
       "booking_type": "whatsapp",
@@ -198,7 +198,7 @@
     {
       "id": "evt_005",
       "format_id": "fuori_mura",
-      "title": "Fuori le Mura — Maggio",
+      "title": "Fuori le Mura",
       "date_start": "2026-05-17T09:30:00",
       "date_end":   "2026-05-17T19:00:00",
       "location": {
@@ -207,7 +207,7 @@
         "maps_url": ""
       },
       "description_override": "",
-      "image_override": "",
+      "image_override": "https://static.tildacdn.com/tild6333-6266-4738-b231-343335666237/photo-1519930147693-.jpg",
       "capacity": 20,
       "booking_url": "https://wa.me/39XXXXXXXXXX?text=Vorrei%20prenotare%20Fuori%20le%20Mura%20-%2017%20maggio",
       "booking_type": "whatsapp",
