@@ -196,7 +196,7 @@
       "google_calendar_event_id": ""
     },
     {
-      "id": "evt_005",
+      "id": "evt_006",
       "format_id": "fuori_mura",
       "title": "Fuori le Mura",
       "date_start": "2026-05-17T09:30:00",
@@ -216,7 +216,7 @@
       "google_calendar_event_id": ""
     },
     {
-      "id": "evt_006",
+      "id": "evt_005",
       "format_id": "menti_segreto",
       "title": "Menti in Segreto",
       "date_start": "2026-05-16T19:30:00",
