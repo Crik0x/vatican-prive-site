@@ -69,5 +69,30 @@
       "archived_at": "2026-04-21T17:00:00",
       "notes": "Evento del 18 aprile - archiviato automaticamente"
     }
+    {
+      "id": "evt_007",
+      "format_id": "salotto_damascati",
+      "city": "roma",
+      "edition": 2,
+      "title": "Il Salotto dei Damascati",
+      "date_start": "2026-04-24T20:00:00",
+      "date_end":   "2026-04-24T22:30:00",
+      "status": "completed",
+      "archived_at": "2026-04-27T17:00:00",
+      "notes": "Evento del 24 aprile - archiviato automaticamente"
+    },
+    {
+      "id": "evt_008",
+      "format_id": "aperitivi_divini",
+      "city": "roma",
+      "edition": 2,
+      "title": "Aperitivi diVini",
+      "date_start": "2026-05-25T20:00:00",
+      "date_end":   "2026-05-25T22:30:00",
+      "visibility": "public",
+      "status": "completed",
+      "archived_at": "2026-04-27T17:00:00",
+      "notes": "Evento del 25 aprile - archiviato automaticamente"
+    }
   ]
 }

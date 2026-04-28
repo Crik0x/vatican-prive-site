@@ -379,15 +379,17 @@
     }
   ],
 
+// PROSSIMI EVENTI IN PROGRAMMA — da aggiornare regolarmente, almeno 2 settimane prima dell'evento
+// ULTIMO EVENTO evt_009
   "events": [
     {
-      "id": "evt_007",
+      "id": "evt_009",
       "format_id": "salotto_damascati",
       "city": "roma",
       "edition": 2,
       "title": "Il Salotto dei Damascati",
-      "date_start": "2026-04-24T20:00:00",
-      "date_end":   "2026-04-24T22:30:00",
+      "date_start": "2026-05-01T20:00:00",
+      "date_end":   "2026-05-01T22:30:00",
       "visibility": "public",
       "published": true,
       "featured": false,
@@ -444,14 +446,15 @@
         "registrations_count": 0
       }
     },
+    // NEXT
     {
-      "id": "evt_008",
+      "id": "evt_010",
       "format_id": "aperitivi_divini",
       "city": "roma",
       "edition": 2,
       "title": "Aperitivi diVini",
-      "date_start": "2026-04-25T20:00:00",
-      "date_end":   "2026-04-25T22:30:00",
+      "date_start": "2026-05-01T20:00:00",
+      "date_end":   "2026-05-01T22:30:00",
       "visibility": "public",
       "published": true,
       "featured": false,
@@ -508,6 +511,7 @@
         "registrations_count": 0
       }
     },
+// next
     {
       "id": "evt_003",
       "format_id": "conclave",
@@ -572,6 +576,7 @@
         "registrations_count": 0
       }
     },
+    // NEXT
     {
       "id": "evt_004",
       "format_id": "cena_membri",
@@ -636,6 +641,7 @@
         "registrations_count": 0
       }
     },
+    // next
     {
       "id": "evt_005",
       "format_id": "menti_salotto",
@@ -700,6 +706,7 @@
         "registrations_count": 0
       }
     },
+    // next
     {
       "id": "evt_006",
       "format_id": "fuori_mura",

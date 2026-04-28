@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Tavola del Salotto — Vatican Privé</title>
+<meta name="description" content="Menu di Vatican Privé — Club Culturale Privato. Via della Conciliazione 44, Roma. Cucina stagionale e cantina selezionata.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --oro: #C9A96E;
+  --oro-s: #8B6914;
+  --oro-c: #F5ECD8;
+  --ink: #1A1814;
+  --ink-m: #3A3530;
+  --ink-soft: #6B6458;
+  --carta: #FAFAF7;
+  --perg: #F5F0E8;
+  --trans: 480ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--carta);
+  color: var(--ink);
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fafaf7f5;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,169,110,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 56px;
+  gap: 1rem;
+}
+.nav-brand {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  color: var(--oro-s);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-switcher {
+  display: flex;
+  background: rgba(201,169,110,0.1);
+  border: 1px solid rgba(201,169,110,0.22);
+  border-radius: 24px;
+  padding: 3px;
+  gap: 2px;
+}
+.nav-switcher button {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  border-radius: 20px;
+  padding: .45rem 1.2rem;
+  cursor: pointer;
+  transition: background var(--trans), color var(--trans);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.nav-switcher button.active {
+  background: var(--oro);
+  color: var(--ink);
+}
+
+/* ── PAGES WITH FADE ── */
+.menu-wrap {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.page {
+  padding: 3rem 2rem 5rem;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity var(--trans), transform var(--trans);
+  pointer-events: none;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+}
+.page.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+  position: relative;
+}
+
+/* ── HEADER ── */
+.menu-header {
+  text-align: center;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(201,169,110,0.25);
+  margin-bottom: 2.8rem;
+}
+.h-eye {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .26em;
+  color: var(--oro-s);
+  margin-bottom: .5rem;
+}
+.h-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: .4rem;
+}
+.h-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-soft);
+}
+.h-orn {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--oro);
+  margin-top: .7rem;
+  letter-spacing: .35em;
+}
+
+/* ── SECTION ── */
+.sec { margin: 2.8rem 0 .8rem; }
+.sec-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  color: var(--oro-s);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1.1rem;
+  position: relative;
+  padding: 0 2rem;
+}
+.sec-label::before,
+.sec-label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 6rem);
+  height: .5px;
+  background: linear-gradient(to right, transparent, rgba(201,169,110,.35));
+}
+.sec-label::before { left: 0; background: linear-gradient(to right, transparent, rgba(201,169,110,.35)); }
+.sec-label::after  { right: 0; background: linear-gradient(to left, transparent, rgba(201,169,110,.35)); }
+
+/* ── DISH ── */
+.dish {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: .9rem 0;
+  border-bottom: .5px solid rgba(201,169,110,.14);
+  transition: background 200ms ease, padding 200ms ease, margin 200ms ease;
+}
+.dish:last-child { border-bottom: none; }
+.dish:hover {
+  background: rgba(245,240,232,.4);
+  padding-left: .6rem;
+  padding-right: .6rem;
+  margin-left: -.6rem;
+  margin-right: -.6rem;
+}
+.dish-left { flex: 1; min-width: 0; }
+
+.dish-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.dish-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13.5px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-soft);
+  margin-top: 3px;
+  line-height: 1.55;
+}
+.dish-soul {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12.5px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--oro-s);
+  margin-top: 5px;
+  line-height: 1.45;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+.tag {
+  font-family: 'Lato', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: .06em;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+.tv  { background: #EAF3DE; color: #27500A; border: .5px solid rgba(59,109,17,.28); }
+.tg  { background: #fcebeb; color: #791F1F; border: .5px solid rgba(226,75,74,.28); }
+.ta  { background: #F5ECD8; color: #8B6914; border: .5px solid rgba(201,169,110,.32); }
+.tn  { background: var(--ink); color: var(--oro); border: .5px solid rgba(201,169,110,.32); }
+.tvg { background: #E8F5E9; color: #1B5E20; border: .5px solid rgba(27,94,32,.28); }
+.price {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--oro);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── WINE CARD ── */
+.wine-card {
+  border: .5px solid rgba(201,169,110,.26);
+  border-radius: 4px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: .75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+.wine-card:hover {
+  border-color: rgba(201,169,110,.65);
+  background: rgba(245,240,232,.3);
+}
+.wine-left { flex: 1; }
+.wine-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.wine-eye {
+  font-family: 'Cinzel', serif;
+  font-size: 8.5px;
+  letter-spacing: .14em;
+  color: var(--oro-s);
+  margin-top: 2px;
+}
+.wine-deg {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  margin-top: 1px;
+}
+.wine-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-soft);
+  margin-top: .4rem;
+  line-height: 1.55;
+}
+.wine-prices { text-align: right; flex-shrink: 0; }
+.wp-lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 2px;
+}
+.wp-main {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: var(--oro);
+  display: block;
+}
+
+/* ── ALLERGY + NOTE ── */
+.allergy-sec {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: .5px solid rgba(201,169,110,.18);
+}
+.allergy-ttl {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  color: var(--ink-soft);
+  margin-bottom: .8rem;
+}
+.allergy-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.allergy-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--ink-soft);
+}
+.note-box {
+  border-left: 2px solid rgba(201,169,110,.4);
+  padding: .75rem 1.1rem;
+  margin: 1.5rem 0;
+  background: rgba(245,240,232,.35);
+  border-radius: 0 3px 3px 0;
+}
+.note-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+.mfooter {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(201,169,110,.18);
+}
+.mfooter-orn { font-family:'Cormorant Garamond',serif; font-size:16px; color:var(--oro); letter-spacing:.35em; margin-bottom:.4rem; }
+.mfooter-txt { font-family:'Cormorant Garamond',serif; font-size:12px; font-style:italic; color:var(--oro-s); letter-spacing:.06em; }
+
+@media (max-width: 620px) {
+  nav { padding: 0 1.2rem; }
+  .nav-brand { font-size: 10px; }
+  .nav-switcher button { padding: .4rem .9rem; font-size: 8px; letter-spacing: .12em; }
+  .page { padding: 2rem 1.2rem 4rem; }
+  .wine-card { flex-direction: column; gap: .5rem; }
+  .wine-prices { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="https://vaticanprive.com">Vatican Privé</a>
+  <div class="nav-switcher">
+    <button onclick="go('cibo')" class="active" id="tab-cibo">La Cucina</button>
+    <button onclick="go('vini')" id="tab-vini">La Cantina</button>
+  </div>
+</nav>
+
+<div class="menu-wrap">
+
+<!-- ══════════════════════════════════════════
+     CUCINA
+══════════════════════════════════════════ -->
+<div class="page active" id="page-cibo">
+
+  <div class="menu-header">
+    <div class="h-eye">Vatican Privé · Via della Conciliazione 44, Roma</div>
+    <div class="h-title">La Cucina del Salotto</div>
+    <div class="h-sub">Piatti di stagione · Primavera 2026</div>
+    <div class="h-orn">· · ·</div>
+  </div>
+
+  <!-- BENVENUTO -->
+  <div class="sec">
+    <div class="sec-label">Benvenuto — i primi segni</div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Disposizione alla Bellezza</div>
+        <div class="dish-desc">Chips di barbabietola di Chioggia, sale affumicato al ciliegio, crème fraîche al rafano fresco — il rosso più bello che esista in natura, reso croccante</div>
+        <div class="dish-soul">Per chi riconosce il bello anche dove non si aspettava di trovarlo.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag ta">latte</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 8</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Arte di Vivere</div>
+        <div class="dish-desc">Crostini di pane di casa al lardo di Colonnata DOP, miele di castagno delle colline laziali — la cura del dettaglio che trasforma il semplice in memorabile</div>
+        <div class="dish-soul">Perché vivere bene è anche sapere cosa mettere sul pane.</div>
+        <div class="tags"><span class="tag tg">glutine</span><span class="tag ta">latte</span></div>
+      </div>
+      <div class="price">€ 9</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Disposizione alla Curiosità</div>
+        <div class="dish-desc">Bocconcini di formaggio fresco di capra decorati con spezie esotiche — cardamomo, sumac, za'atar, fiori eduli — su ardesia con grissini al sesamo</div>
+        <div class="dish-soul">Per chi non ha mai smesso di chiedersi cosa ci sia oltre l'orizzonte del palato.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag tg">glutine</span><span class="tag ta">latte · sesamo</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 11</div>
+    </div>
+  </div>
+
+  <!-- ANTIPASTI -->
+  <div class="sec">
+    <div class="sec-label">Antipasti — ciò che prepara l'anima</div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Sensibilità</div>
+        <div class="dish-desc">Carpaccio di carciofi romaneschi, limone di Amalfi, parmigiano reggiano 30 mesi in scaglie sottili, menta fresca — ogni strato richiede attenzione per essere percepito</div>
+        <div class="dish-soul">Per chi sa ascoltare anche i sapori che parlano a voce bassa.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag ta">latte</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 12</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Centralità dell'Espressione</div>
+        <div class="dish-desc">Blinis di grano saraceno con salmone selvaggio del Pacifico affumicato a freddo, crème fraîche, uova di lompo nere — tre forme di dire la stessa cosa in lingue diverse</div>
+        <div class="dish-soul">Per chi ha qualcosa da dire e sa come dirlo.</div>
+        <div class="tags"><span class="tag tg">glutine</span><span class="tag ta">uova · pesce · latte</span></div>
+      </div>
+      <div class="price">€ 16</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Disposizione all'Ascolto</div>
+        <div class="dish-desc">Tartare di tonno rosso del Mediterraneo, avocado Hass, sesamo tostato, citrus dressing al yuzu — un piatto che non urla, eppure non smette mai di parlare</div>
+        <div class="dish-soul">Per chi ha imparato che il silenzio è la forma più alta di presenza.</div>
+        <div class="tags"><span class="tag ta">pesce · sesamo</span></div>
+      </div>
+      <div class="price">€ 22</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Cultura come Comprensione</div>
+        <div class="dish-desc">Hummus classico di ceci biologici cotti lentamente, tahini di sesamo integrale, cumino tostato, prezzemolo fresco, olio extravergine a filo</div>
+        <div class="dish-soul">Per chi sa che capire una cultura passa prima di tutto dalla sua tavola.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag tvg">vegan</span><span class="tag ta">sesamo</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 10</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Rifiuto dell'Inerzia</div>
+        <div class="dish-desc">Hummus di ceci con barbabietola rossa arrostita, cumino affumicato, scorza di limone — il colore porpora di chi ha scelto di non restare dov'era</div>
+        <div class="dish-soul">Per chi sa che il cambiamento ha sempre un bel colore.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag tvg">vegan</span><span class="tag ta">sesamo</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 10</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Spiritualità</div>
+        <div class="dish-desc">Hummus di ceci, latte di cocco biologico, curry di Madras, coriandolo fresco — l'Oriente che arriva a Roma e decide di restare</div>
+        <div class="dish-soul">Per chi cerca il senso profondo anche in un piatto.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag tvg">vegan</span><span class="tag ta">sesamo</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 10</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Attrazione per l'Anti-Gravità</div>
+        <div class="dish-desc">Hummus di ceci con Sambal Oelek, peperoncino calabrese, olio piccante infuso — per chi vuole confrontarsi con il fuoco e uscirne cambiato</div>
+        <div class="dish-soul">Per chi non ha paura di ciò che brucia.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag tvg">vegan</span><span class="tag ta">sesamo</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 10</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Rapporto con il Valore</div>
+        <div class="dish-desc">Hummus di ceci con pomodori secchi disidratati in salamoia di capperi e origano selvatico — la concentrazione del sole siciliano in un cucchiaio</div>
+        <div class="dish-soul">Per chi sa distinguere ciò che vale davvero da ciò che sembra solo prezioso.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag ta">sesamo</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 10</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Rapporto con il Reale</div>
+        <div class="dish-desc">Caviale di zucchine romanesche, basilico di Genova, ricotta di pecora laziale, sfoglia di pane carasau sardo — l'estate che prende forma concreta davanti ai tuoi occhi</div>
+        <div class="dish-soul">Per chi sa che la pienezza si vive, non si immagina.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag tg">glutine</span><span class="tag ta">latte</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 14</div>
+    </div>
+  </div>
+
+  <!-- PRIMI -->
+  <div class="sec">
+    <div class="sec-label">Primi — quando il tempo si ferma</div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Protagonismo della Volontà</div>
+        <div class="dish-desc">Risotto Carnaroli al Franciacorta Satèn Bellavista, burro di malga alpino, scorza di limone di Amalfi, polvere di parmigiano 36 mesi — sette minuti di attenzione continua per un risultato che non perdona la distrazione</div>
+        <div class="dish-soul">Per chi sceglie di essere presente in ogni istante di ciò che fa.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag ta">latte · solfiti</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 24</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Tensione all'Intensità</div>
+        <div class="dish-desc">Spaghetti trafilati al bronzo, bottarga di muggine sarda, tuorlo d'uovo di gallina ruspante, cozze del Tirreno, pepe nero di Sarawak macinato al momento</div>
+        <div class="dish-soul">Per chi non si accontenta di vivere a metà intensità.</div>
+        <div class="tags"><span class="tag tg">glutine</span><span class="tag ta">pesce · uova · molluschi</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 26</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Stile</div>
+        <div class="dish-desc">Paccheri di Gragnano con crema di burrata pugliese, pomodorino confit di Pachino arrostito per 3 ore, bottarga di muggine grattugiata al tavolo — ogni grattata è un gesto, ogni gesto è una firma</div>
+        <div class="dish-soul">Per chi sa che il modo in cui fai le cose dice tutto di chi sei.</div>
+        <div class="tags"><span class="tag tg">glutine</span><span class="tag ta">latte · pesce</span></div>
+      </div>
+      <div class="price">€ 22</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Gentilezza</div>
+        <div class="dish-desc">Gnocchi di patate fresche cotte a vapore, ripieni di speck dell'Alto Adige IGP e Brie de Meaux affinato — morbidi fuori, complessi dentro, come le persone che vale la pena conoscere davvero</div>
+        <div class="dish-soul">Per chi sa che la delicatezza non è debolezza — è la forma più alta di forza.</div>
+        <div class="tags"><span class="tag tg">glutine</span><span class="tag ta">latte · uova</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 20</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Gusto</div>
+        <div class="dish-desc">Pasta fresca all'uovo ripiena di zucca mantovana, amaretti di Saronno sbriciolati, mostarda di Cremona — il contrasto dolce-salato-speziato che ha reso celebre la cucina lombarda nei secoli</div>
+        <div class="dish-soul">Per chi ha sviluppato la sensibilità di riconoscere la qualità nelle sue infinite forme.</div>
+        <div class="tags"><span class="tag tg">glutine</span><span class="tag ta">uova · latte · frutta secca</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 22</div>
+    </div>
+  </div>
+
+  <!-- SECONDI -->
+  <div class="sec">
+    <div class="sec-label">Secondi — il centro della conversazione</div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Condivisione Superiore</div>
+        <div class="dish-desc">Filetto di manzo maturato 45 giorni in crosta di erbe aromatiche alpine, salsa al Montepulciano d'Abruzzo ridotta per ore — il piatto che parla ai grandi dello spirito di ogni tempo</div>
+        <div class="dish-soul">Per chi aspira a risuonare con ciò che è durato oltre il suo tempo.</div>
+        <div class="tags"><span class="tag ta">solfiti</span></div>
+      </div>
+      <div class="price">€ 38</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Rapporto con il Tempo</div>
+        <div class="dish-desc">Branzino intero del Tirreno al forno lento, finocchio selvatico di campagna, olive taggiasche della Liguria, limone di Sorrento — marinato 24 ore, cotto 40 minuti, da gustare senza fretta</div>
+        <div class="dish-soul">Per chi ha imparato che le cose più buone non si possono affrettare.</div>
+        <div class="tags"><span class="tag ta">pesce</span></div>
+      </div>
+      <div class="price">€ 32</div>
+    </div>
+  </div>
+
+  <!-- CONTORNI -->
+  <div class="sec">
+    <div class="sec-label">Contorni</div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Energia e Compatibilità</div>
+        <div class="dish-desc">Asparagi verdi grigliati su pietra lavica, uovo in camicia di gallina ruspante, scaglie di parmigiano reggiano 24 mesi, fleur de sel — due ingredienti che si scelgono da sempre</div>
+        <div class="dish-soul">Per chi sa riconoscere la sintonia al primo incontro.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag ta">uova · latte</span></div>
+      </div>
+      <div class="price">€ 12</div>
+    </div>
+  </div>
+
+  <!-- DOLCI -->
+  <div class="sec">
+    <div class="sec-label">Dolci — il privilegio dell'ultima parola</div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Desiderio di Meritare</div>
+        <div class="dish-desc">Tiramisù in coppa con savoiardi imbevuti di espresso napoletano ristretto, crema di mascarpone di Lodi montata a mano, cacao amaro del Madagascar 100% — preparato 12 ore prima, perché le cose degne di essere assaporate chiedono di essere attese</div>
+        <div class="dish-soul">Per chi sa di meritare un'elevazione — e non ha paura di desiderarla.</div>
+        <div class="tags"><span class="tag tg">glutine</span><span class="tag ta">uova · latte</span></div>
+      </div>
+      <div class="price">€ 12</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Condivisione Primaria</div>
+        <div class="dish-desc">Crema catalana — pan di Spagna morbido, crema alla cannella di Ceylon e vaniglia di Tahiti, zucchero di canna bruciato al cannello davanti all'ospite</div>
+        <div class="dish-soul">Per chi riconosce nell'altro un riflesso di sé, e ne è commosso.</div>
+        <div class="tags"><span class="tag tg">glutine</span><span class="tag ta">uova · latte</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 11</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Raffinatezza</div>
+        <div class="dish-desc">Panna cotta al caramello salato di Bretagna, coulis di vaniglia del Madagascar, fior di sale — l'essenza della cura portata alla sua forma più pura</div>
+        <div class="dish-soul">Per chi cura le forme perché sa che la forma è già sostanza.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag ta">latte</span><span class="tag tn">novità</span></div>
+      </div>
+      <div class="price">€ 10</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Eleganza</div>
+        <div class="dish-desc">Crema di mascarpone di Lodi, caffè espresso dell'Etiopia Yirgacheffe, cardamomo del Kerala — servita in bicchierino di cristallo, una voce bassa che convince senza mai alzare i toni</div>
+        <div class="dish-soul">Per chi ha capito che l'eleganza non si indossa — si è.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag ta">uova · latte</span></div>
+      </div>
+      <div class="price">€ 9</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-left">
+        <div class="dish-name">Rispetto</div>
+        <div class="dish-desc">Panna cotta al miele di lavanda della Provenza, coulis di frutti rossi del bosco piemontese — ventiquattro ore di riposo per un minuto di piacere</div>
+        <div class="dish-soul">Per chi sa che il rispetto si dà ai tempi delle cose, non solo alle persone.</div>
+        <div class="tags"><span class="tag tv">vegetariano</span><span class="tag ta">latte</span></div>
+      </div>
+      <div class="price">€ 10</div>
+    </div>
+  </div>
+
+  <div class="allergy-sec">
+    <div class="allergy-ttl">Allergeni e preferenze alimentari</div>
+    <div class="allergy-grid">
+      <div class="allergy-item"><span class="tag tg">glutine</span> cereali con glutine</div>
+      <div class="allergy-item"><span class="tag ta">latte</span> lattosio e derivati</div>
+      <div class="allergy-item"><span class="tag ta">pesce</span> pesce e derivati</div>
+      <div class="allergy-item"><span class="tag ta">uova</span> uova e derivati</div>
+      <div class="allergy-item"><span class="tag tv">vegetariano</span> vegetariano</div>
+      <div class="allergy-item"><span class="tag tvg">vegan</span> vegano</div>
+      <div class="allergy-item"><span class="tag tn">novità</span> novità stagionale</div>
+    </div>
+  </div>
+
+  <div class="note-box" style="margin-top:1.5rem">
+    <div class="note-text">Tutti i piatti sono preparati con ingredienti di stagione selezionati. Gli allergeni sono indicati a titolo orientativo — per richieste specifiche il nostro staff è a disposizione. I prezzi includono IVA.</div>
+  </div>
+
+  <div class="mfooter">
+    <div class="mfooter-orn">· · ·</div>
+    <div class="mfooter-txt">Vatican Privé · Via della Conciliazione 44, 00193 Roma · vaticanprive.com</div>
+  </div>
+
+</div><!-- /page-cibo -->
+
+<!-- ══════════════════════════════════════════
+     CANTINA
+══════════════════════════════════════════ -->
+<div class="page" id="page-vini">
+
+  <div class="menu-header">
+    <div class="h-eye">Cantina Privata · Selezione Primavera 2026</div>
+    <div class="h-title">Il Sillabare del Vino</div>
+    <div class="h-sub">Ogni bottiglia ha una storia. Ne scegliamo solo alcune.</div>
+    <div class="h-orn">· · ·</div>
+  </div>
+
+  <!-- BOLLICINE -->
+  <div class="sec">
+    <div class="sec-label">Bollicine — il rito dell'inizio</div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Valdobbiadene Superiore di Cartizze</div>
+        <div class="wine-eye">Valdobbiadene Superiore di Cartizze DOCG · Veneto · 11,5%</div>
+        <div class="wine-desc">Il grand cru delle bollicine italiane, da 107 ettari di vigneti ripidi. Dorato pallido, perlage delicato, mela golden, pera Williams, fiori di acacia — finale morbido e leggermente dolce. Il solo modo degno di aprire una serata al club.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 16</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 62</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">A Storia — Valdobbiadene Prosecco Superiore</div>
+        <div class="wine-eye">Valdobbiadene Prosecco Superiore DOCG · Veneto · 11%</div>
+        <div class="wine-desc">Il Prosecco che racconta la storia del territorio — fresco, floreale, con quella leggerezza che non esclude la profondità. Pera, fiori bianchi, sfumatura di mandorla. Perfetto come apertura o durante tutto il pasto.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 10</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 38</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Franciacorta Satèn — Bellavista</div>
+        <div class="wine-eye">Franciacorta DOCG · Lombardia · 12,5%</div>
+        <div class="wine-desc">Bianco paglierino luminoso. Perlage finissimo come un segreto sussurrato. Note di pesca bianca, pan brioche, mandorla dolce. Il vino che entra anche nel risotto del Salotto — doppia vita, doppia eleganza.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 18</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 75</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIANCHI -->
+  <div class="sec">
+    <div class="sec-label">Bianchi — la voce chiara della terra</div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">José Poderi Carpineto — Vermentino</div>
+        <div class="wine-eye">Vermentino IGT Toscana · 12,5% · 2021</div>
+        <div class="wine-desc">Fresco e sapido come una brezza costiera. Limone, pesca bianca, macchia mediterranea. Abbinamento naturale con il carpaccio di carciofi e gli hummus della tavola.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 12</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 46</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Paul Mas Réserve — Sauvignon Blanc</div>
+        <div class="wine-eye">IGP Pays d'Oc · Francia · 12,5% · 2024</div>
+        <div class="wine-desc">Pompelmo, ribes bianco, erba fresca appena tagliata. La Francia del Sud che parla la stessa lingua del Mediterraneo romano.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 11</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 40</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">GV Straw — St. Michael-Eppan</div>
+        <div class="wine-eye">Südtirol Alto Adige DOC · Gewürztraminer · 14% · 2024</div>
+        <div class="wine-desc">Litchi, rosa, zenzero, miele d'acacia — esuberante senza mai perdere l'equilibrio. Da uve stramature di una delle cantine storiche dell'Alto Adige. Un bianco che non si dimentica.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 14</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 54</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Chablis — François Martenot "Monflory"</div>
+        <div class="wine-eye">Chablis AOC · Borgogna, Francia · 12,5% · 2022</div>
+        <div class="wine-desc">La pietra focaia e il limone della Borgogna settentrionale. Minerale, secco, tagliente come un ragionamento preciso. Pura espressione del suolo kimmeridgiano.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 15</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 58</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Scacciadiavoli — Montefalco Bianco</div>
+        <div class="wine-eye">Montefalco DOC · Umbria · 13,5% · 2023</div>
+        <div class="wine-desc">Trebbiano Spoletino in purezza dall'Umbria più autentica. Fiori di ginestra, mela cotogna, finale sapido e persistente. Il vino che scaccia i demoni della banalità.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 13</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 50</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Gewürztraminer — Leboem</div>
+        <div class="wine-eye">Südtirol Alto Adige DOC · 13,5% · 2024</div>
+        <div class="wine-desc">Petali di rosa, frutta tropicale matura, spezie dolci. Abbinamento inatteso e straordinario con gli hummus speziati e i formaggi del benvenuto.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 14</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 54</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Château Laussac</div>
+        <div class="wine-eye">Bordeaux AOC · Francia · 13,5% · 2020</div>
+        <div class="wine-desc">Sauvignon Blanc e Sémillon in equilibrio — erbe aromatiche, pesca gialla, nota burrosa. Il fascino della Francia che non ha bisogno di presentarsi.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 14</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 52</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">J. Hütte — Blauburgunder</div>
+        <div class="wine-eye">Südtirol Alto Adige DOC · Pinot Nero · 13,5% · 2024</div>
+        <div class="wine-desc">Elegante, setoso, con la trasparenza che solo le alte quote sanno dare. Ciliegia di montagna, spezie lievi, tannini gentili. Il rosso da meditazione del nostro nord.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 15</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 58</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROSSI -->
+  <div class="sec">
+    <div class="sec-label">Rossi — il carattere che non si scusa</div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Valpolicella Ripasso Superiore — Fumanio</div>
+        <div class="wine-eye">Valpolicella Ripasso Superiore DOC · Veneto · 14% · 2022</div>
+        <div class="wine-desc">Il vino che passa due volte sulle vinacce dell'Amarone e ne esce trasformato. Ciliegia sotto spirito, prugna matura, cioccolato fondente, tabacco dolce. Struttura importante, beva elegante.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 15</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 58</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Nebbiolo delle Langhe — Della Marmora</div>
+        <div class="wine-eye">Langhe Nebbiolo DOC · Piemonte · 13,5% · 2024</div>
+        <div class="wine-desc">Il Nebbiolo giovane delle Langhe — arioso, fruttato. Rosa selvatica, lampone, spezie delicate. Il modo più accessibile di avvicinarsi al carattere del Barolo senza la sua austerità.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 14</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 52</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Caro Sella — Negramaro Appassimento</div>
+        <div class="wine-eye">IGT Puglia · La PugliaSa · 14% · 2022</div>
+        <div class="wine-desc">Uve lasciate appassire per concentrare zuccheri e profumi — more, fichi secchi, spezie orientali, finale lungo e caldo. Il Sud che abbraccia chi lo sa ricevere.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 14</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 52</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Morellino di Scansano Purosangue</div>
+        <div class="wine-eye">Morellino di Scansano DOCG · Toscana · 14,5% · 2022</div>
+        <div class="wine-deg">12 mesi in botte grande · 12 mesi in bottiglia</div>
+        <div class="wine-desc">Ciliegia selvatica, macchia mediterranea, tannino vivo. La Maremma toscana nella sua versione più autentica. Un vino che non chiede il permesso.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 15</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 58</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Martedi — Morellino di Scansano</div>
+        <div class="wine-eye">Morellino di Scansano DOCG · Toscana · 14% · 2024</div>
+        <div class="wine-desc">Frutto fresco, struttura agile, tannini vivaci. Il Morellino da tutti i giorni della settimana — anche il martedì, che non ha mai torto di essere festeggiato.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 13</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 50</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Chianti Classico Gallo Nero — Carobbio</div>
+        <div class="wine-eye">Chianti Classico DOCG · Toscana · 14% · 2019</div>
+        <div class="wine-desc">Sei anni già nelle spalle, tannini setosi, complessità sviluppata. Amarena, tabacco dolce, spezie, violetta appassita. Il Chianti che convince anche i detrattori.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 16</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 62</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Scacciadiavoli — Montefalco Rosso</div>
+        <div class="wine-eye">Montefalco Rosso DOC · Umbria · 13,5% · 2023</div>
+        <div class="wine-desc">Sagrantino e Sangiovese dall'Umbria più autentica. Prugna, mora, note balsamiche, tannino deciso ma bilanciato. Il vino che porta con sé la quiete della campagna umbra.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 125 ml</span><span class="wp-main">€ 14</span>
+        <span class="wp-lbl" style="margin-top:7px">bottiglia</span><span class="wp-main">€ 54</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIRRA -->
+  <div class="sec">
+    <div class="sec-label">Birra</div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">La Cerveza — Corona Extra</div>
+        <div class="wine-eye">Lager · Messico · 4,5%</div>
+        <div class="wine-desc">Bionda, cristallina, immediata. Servita ghiacciata con uno spicchio di lime nel collo della bottiglia — il gesto che la trasforma da birra a rito.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">bottiglia 33 cl</span><span class="wp-main">€ 7</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIGESTIVI -->
+  <div class="sec">
+    <div class="sec-label">Digestivi — il sigillo della serata</div>
+
+    <div class="wine-card">
+      <div class="wine-left">
+        <div class="wine-name">Amaro del Cardinale</div>
+        <div class="wine-eye">Selezione esclusiva Vatican Privé · disponibile solo nelle sedi Club Privé</div>
+        <div class="wine-desc">Blend riservato di erbe alpine e agrumi del Sud. Non si trova altrove. Il modo più elegante per rimandare l'uscita di qualche minuto prezioso.</div>
+      </div>
+      <div class="wine-prices">
+        <span class="wp-lbl">calice 4 cl</span><span class="wp-main">€ 14</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-box" style="margin-top:1.5rem">
+    <div class="note-text">I vini al calice sono serviti alla temperatura ottimale. Per abbinamenti personalizzati e bottiglie fuori carta, il nostro staff è a disposizione. Solfiti presenti in tutti i vini.</div>
+  </div>
+
+  <div class="mfooter">
+    <div class="mfooter-orn">· · ·</div>
+    <div class="mfooter-txt">Vatican Privé · Via della Conciliazione 44, 00193 Roma · vaticanprive.com</div>
+  </div>
+
+</div><!-- /page-vini -->
+</div><!-- /menu-wrap -->
+
+<script>
+function go(id) {
+  const current = document.querySelector('.page.active');
+  const next = document.getElementById('page-' + id);
+  if (current === next) return;
+
+  current.style.opacity = '0';
+  current.style.transform = 'translateY(10px)';
+  current.style.pointerEvents = 'none';
+
+  setTimeout(function() {
+    current.classList.remove('active');
+    current.style.opacity = '';
+    current.style.transform = '';
+
+    next.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        next.style.opacity = '1';
+        next.style.transform = 'translateY(0)';
+      });
+    });
+  }, 260);
+
+  document.querySelectorAll('.nav-switcher button').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  document.getElementById('tab-' + id).classList.add('active');
+}
+</script>
+</body>
+</html>

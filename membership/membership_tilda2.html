@@ -1,0 +1,863 @@
+<!-- ============================================================
+     VATICAN PRIVÉ — MEMBERSHIP · Versione Tilda T123
+     
+     ISTRUZIONI DI INSTALLAZIONE:
+     1. In Tilda: aggiungi blocco T123 (HTML)
+     2. Incolla TUTTO questo codice nel campo HTML
+     3. Nei Site Settings → Head HTML aggiungi il link font:
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+     4. Salva e pubblica
+     
+     NOTA TECNICA: Tutti gli stili usano #vp-mem come wrapper
+     per evitare conflitti con i CSS globali di Tilda.
+     I bottoni usano !important sui colori per battere i temi Tilda.
+     ============================================================ -->
+
+<style>
+/* ── VARIABILI SCOPED ── */
+#vp-mem {
+  --oro: #C9A96E;
+  --oro-s: #8B6914;
+  --oro-c: #F5ECD8;
+  --ink: #1A1814;
+  --ink-m: #3A3530;
+  --ink-soft: #6B6458;
+  --carta: #FAFAF7;
+  --pg: #F5F0E8;
+  --F: 'Lato', sans-serif;
+  --FC: 'Cinzel', serif;
+  --FE: 'Cormorant Garamond', serif;
+  font-family: var(--F);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+#vp-mem *, #vp-mem *::before, #vp-mem *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── UTILITY ── */
+#vp-mem .vp-eyebrow {
+  font-family: var(--FC);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--oro-s);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+#vp-mem .vp-eyebrow.light { color: var(--oro); }
+#vp-mem .vp-div { width: 52px; height: 1px; background: var(--oro); margin: 18px auto; }
+#vp-mem .vp-div.left { margin: 18px 0; }
+
+/* ── HERO ── */
+#vp-mem .vp-hero {
+  background: var(--ink);
+  padding: 110px 24px 96px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#vp-mem .vp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.11) 0%, transparent 65%);
+  pointer-events: none;
+}
+#vp-mem .vp-hero-inner { max-width: 800px; margin: 0 auto; position: relative; }
+#vp-mem .vp-hero h1 {
+  font-family: var(--FE);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: var(--oro-c);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+#vp-mem .vp-hero h1 em { font-style: italic; color: var(--oro); }
+#vp-mem .vp-hero p {
+  font-family: var(--FE);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(245,236,216,0.65);
+  max-width: 580px;
+  margin: 0 auto;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.75;
+}
+
+/* ── INTRO STRIP ── */
+#vp-mem .vp-intro {
+  background: var(--pg);
+  border-top: 1px solid rgba(201,169,110,0.28);
+  border-bottom: 1px solid rgba(201,169,110,0.28);
+  padding: 52px 24px;
+  text-align: center;
+}
+#vp-mem .vp-intro h2 {
+  font-family: var(--FE);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 400;
+  color: var(--ink-m);
+  max-width: 680px;
+  margin: 0 auto 14px;
+  line-height: 1.45;
+}
+#vp-mem .vp-intro h2 strong { font-weight: 600; color: var(--ink); }
+#vp-mem .vp-intro p { font-size: 0.9rem; color: var(--ink-soft); max-width: 520px; margin: 0 auto; }
+
+/* ── PILLARS ── */
+#vp-mem .vp-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2px;
+  background: rgba(201,169,110,0.14);
+}
+#vp-mem .vp-pillar { background: var(--carta); padding: 38px 30px; }
+#vp-mem .vp-pillar-num { font-family: var(--FC); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--oro); display: block; margin-bottom: 14px; }
+#vp-mem .vp-pillar h3 { font-family: var(--FE); font-size: 1.2rem; font-weight: 600; color: var(--ink); margin-bottom: 9px; line-height: 1.3; }
+#vp-mem .vp-pillar p { font-size: 0.87rem; color: var(--ink-soft); line-height: 1.65; }
+
+/* ── MEMBERSHIP CARDS ── */
+#vp-mem .vp-mem-section { background: var(--ink); padding: 88px 24px; }
+#vp-mem .vp-mem-head { text-align: center; max-width: 560px; margin: 0 auto 56px; }
+#vp-mem .vp-mem-head h2 {
+  font-family: var(--FC);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--oro-c);
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+#vp-mem .vp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+#vp-mem .vp-card {
+  background: #1f1d15;
+  border: 1px solid rgba(201,169,110,0.1);
+  padding: 42px 34px 46px;
+  position: relative;
+  transition: border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+#vp-mem .vp-card:hover { border-color: rgba(201,169,110,0.38); }
+#vp-mem .vp-card.feat {
+  border-color: rgba(201,169,110,0.5);
+  background: #231f14;
+  border-top: 2px solid var(--oro);
+}
+#vp-mem .vp-card-badge {
+  position: absolute;
+  top: -1px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--oro);
+  color: var(--ink) !important;
+  font-family: var(--FC);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  padding: 5px 16px;
+  white-space: nowrap;
+  text-decoration: none !important;
+}
+#vp-mem .vp-card-lv { font-family: var(--FC); font-size: 0.58rem; letter-spacing: 0.22em; color: var(--oro-s); display: block; margin-bottom: 9px; }
+#vp-mem .vp-card h3 { font-family: var(--FE); font-size: 1.9rem; font-weight: 600; color: var(--oro-c); margin-bottom: 4px; line-height: 1.15; font-style: italic; }
+#vp-mem .vp-price { font-family: var(--FC); font-size: 2.5rem; font-weight: 700; color: var(--oro); letter-spacing: 0.02em; line-height: 1; margin: 18px 0 3px; }
+#vp-mem .vp-price sup { font-size: 1rem; font-weight: 400; vertical-align: super; margin-right: 1px; }
+#vp-mem .vp-price-sub { font-size: 0.73rem; color: var(--ink-soft); letter-spacing: 0.04em; margin-bottom: 26px; display: block; }
+#vp-mem .vp-div-card { width: 40px; height: 1px; background: rgba(201,169,110,0.25); margin: 0 0 22px; }
+#vp-mem .vp-card ul { list-style: none; margin-bottom: 34px; flex: 1; padding: 0; }
+#vp-mem .vp-card ul li {
+  font-size: 0.84rem;
+  color: rgba(245,236,216,0.65);
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.045);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.45;
+}
+#vp-mem .vp-card ul li:last-child { border-bottom: none; }
+#vp-mem .vp-dot { width: 5px; height: 5px; background: var(--oro); border-radius: 50%; flex-shrink: 0; margin-top: 5px; display: inline-block; }
+#vp-mem .vp-dot.off { background: var(--ink-soft); opacity: 0.4; }
+#vp-mem .vp-card ul li.hl { color: var(--oro-c); }
+
+/* ── BOTTONI CARD — BLINDATI CONTRO TILDA ── */
+#vp-mem a.vp-card-cta {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 13px 20px !important;
+  font-family: var(--FC) !important;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.18em !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(201,169,110,0.35) !important;
+  color: #C9A96E !important;
+  background: transparent !important;
+  transition: all 0.22s !important;
+  cursor: pointer !important;
+  margin-top: auto !important;
+  border-radius: 3px !important;
+  box-sizing: border-box !important;
+  -webkit-text-fill-color: #C9A96E !important;
+}
+#vp-mem a.vp-card-cta:hover {
+  background: rgba(201,169,110,0.08) !important;
+  border-color: #C9A96E !important;
+  color: #F5ECD8 !important;
+  -webkit-text-fill-color: #F5ECD8 !important;
+}
+/* Costruttore — bordo e testo crema */
+#vp-mem .vp-card.feat a.vp-card-cta {
+  background: transparent !important;
+  color: #F5ECD8 !important;
+  border-color: rgba(245,236,216,0.45) !important;
+  -webkit-text-fill-color: #F5ECD8 !important;
+}
+#vp-mem .vp-card.feat a.vp-card-cta:hover {
+  background: rgba(245,236,216,0.07) !important;
+  border-color: #F5ECD8 !important;
+  color: #F5ECD8 !important;
+  -webkit-text-fill-color: #F5ECD8 !important;
+}
+
+/* ── SIMULATORE ── */
+#vp-mem .vp-sim-section { background: var(--ink); padding: 0 0 88px; }
+#vp-mem .vp-sim-box { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+#vp-mem .vp-tier-btns { display: flex; gap: 2px; margin-bottom: 28px; }
+#vp-mem .vp-tb {
+  flex: 1; padding: 14px 6px 12px;
+  background: #1e1c14;
+  border: 1px solid rgba(201,169,110,0.14);
+  color: rgba(245,236,216,0.45);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  font-family: var(--FE);
+}
+#vp-mem .vp-tb:hover { border-color: rgba(201,169,110,0.4); color: var(--oro-c); }
+#vp-mem .vp-tb.active { background: rgba(201,169,110,0.1); border-color: var(--oro); border-top: 2px solid var(--oro); color: var(--oro-c); }
+#vp-mem .vp-tb .tn { font-family: var(--FE); font-size: 14px; font-style: italic; font-weight: 600; display: block; letter-spacing: 0.02em; margin-bottom: 3px; }
+#vp-mem .vp-tb .tp { font-family: var(--FC); font-size: 13px; font-weight: 700; color: var(--oro); display: block; letter-spacing: 0.04em; margin-bottom: 3px; }
+#vp-mem .vp-tb .tbadge { display: inline-block; font-family: var(--FC); font-size: 6.5px; letter-spacing: 0.14em; background: var(--oro); color: var(--ink); padding: 2px 7px; margin-top: 2px; }
+#vp-mem .vp-sliders { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-bottom: 28px; }
+#vp-mem .vp-sg { display: flex; flex-direction: column; gap: 7px; }
+#vp-mem .vp-sl-lbl { font-size: 11px; color: rgba(245,236,216,0.5); letter-spacing: 0.06em; display: flex; justify-content: space-between; align-items: center; }
+#vp-mem .vp-sl-lbl b { font-family: var(--FC); font-size: 12px; color: var(--oro); font-weight: 700; }
+#vp-mem input[type=range] { width: 100%; height: 2px; -webkit-appearance: none; background: rgba(201,169,110,0.2); outline: none; border-radius: 0; cursor: pointer; }
+#vp-mem input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 13px; height: 13px; background: var(--oro); border-radius: 50%; cursor: pointer; }
+#vp-mem input[type=range]::-moz-range-thumb { width: 13px; height: 13px; background: var(--oro); border-radius: 50%; border: none; cursor: pointer; }
+#vp-mem .vp-tbl-wrap { overflow-x: auto; }
+#vp-mem table { width: 100%; border-collapse: collapse; font-size: 12.5px; table-layout: fixed; }
+#vp-mem thead th { font-family: var(--FC); font-size: 8px; letter-spacing: 0.17em; color: var(--oro-s); padding: 9px 12px; border-bottom: 1px solid rgba(201,169,110,0.2); text-align: right; font-weight: 600; width: 22%; }
+#vp-mem thead th:first-child { text-align: left; width: 34%; }
+#vp-mem tbody td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); text-align: right; color: rgba(245,236,216,0.5); vertical-align: middle; line-height: 1.4; }
+#vp-mem tbody td:first-child { text-align: left; color: rgba(245,236,216,0.65); font-size: 11.5px; }
+#vp-mem tbody tr:last-child td { border-bottom: none; }
+#vp-mem tr.sep td { padding: 5px 12px; border-bottom: 1px solid rgba(201,169,110,0.22); font-family: var(--FC); font-size: 7.5px; letter-spacing: 0.2em; color: var(--oro-s); background: rgba(201,169,110,0.04); }
+#vp-mem .ca { background: rgba(201,169,110,0.07); }
+#vp-mem .cac { font-family: var(--FC); font-weight: 700; font-size: 13px; }
+#vp-mem .pos { color: #4a9e65 !important; }
+#vp-mem .gld { color: var(--oro) !important; }
+#vp-mem .hi { color: var(--oro-c) !important; }
+#vp-mem .dim { color: rgba(245,236,216,0.28) !important; }
+#vp-mem .vp-sum-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin: 18px 0 0; }
+#vp-mem .sc { background: rgba(255,255,255,0.03); border: 1px solid rgba(201,169,110,0.1); padding: 15px 12px; text-align: center; }
+#vp-mem .sc .slb { font-family: var(--FC); font-size: 8.5px; letter-spacing: 0.14em; color: rgba(245,236,216,0.35); display: block; margin-bottom: 5px; }
+#vp-mem .sc .svl { font-family: var(--FC); font-size: 19px; font-weight: 700; color: var(--oro); display: block; line-height: 1; margin-bottom: 2px; }
+#vp-mem .sc .ssu { font-size: 10px; color: rgba(245,236,216,0.35); display: block; line-height: 1.3; }
+#vp-mem .vp-verd { margin: 14px 0 0; background: rgba(201,169,110,0.06); border: 1px solid rgba(201,169,110,0.2); padding: 13px 18px; display: flex; align-items: center; gap: 11px; }
+#vp-mem .vi { width: 8px; height: 8px; background: var(--oro); border-radius: 50%; flex-shrink: 0; }
+#vp-mem .vt { font-family: var(--FE); font-size: 14px; color: rgba(245,236,216,0.8); font-style: italic; line-height: 1.5; }
+#vp-mem .vt strong { font-style: normal; color: var(--oro-c); font-weight: 600; }
+
+/* ── VALUE TABLE ── */
+#vp-mem .vp-value-section { background: var(--pg); padding: 80px 24px; text-align: center; }
+#vp-mem .vp-value-section h2 { font-family: var(--FE); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.4; }
+#vp-mem .vp-value-section h2 em { font-style: italic; color: var(--oro-s); }
+#vp-mem .vp-value-section .lead { font-size: 0.9rem; color: var(--ink-soft); max-width: 500px; margin: 0 auto 48px; }
+#vp-mem .vtbl-wrap { max-width: 700px; margin: 0 auto; overflow-x: auto; }
+#vp-mem .vtbl { width: 100%; border-collapse: collapse; font-size: 0.875rem; table-layout: fixed; }
+#vp-mem .vtbl th { font-family: var(--FC); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--oro-s); text-align: right; padding: 10px 14px; border-bottom: 1px solid rgba(139,105,20,0.2); font-weight: 600; }
+#vp-mem .vtbl th:first-child { text-align: left; }
+#vp-mem .vtbl td { padding: 12px 14px; border-bottom: 1px solid rgba(139,105,20,0.1); text-align: right; color: var(--ink-m); }
+#vp-mem .vtbl td:first-child { text-align: left; color: var(--ink); }
+#vp-mem .vtbl tr:last-child td { border-bottom: none; font-style: italic; color: var(--ink-soft); font-family: var(--FE); font-size: 0.95rem; }
+#vp-mem .vpos { color: #1a6b2e; font-weight: 400; }
+
+/* ── CREDITI VP ── */
+#vp-mem .vp-section { background: var(--carta); padding: 80px 24px; }
+#vp-mem .vp-inner { max-width: 940px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+#vp-mem .vp-text h2 { font-family: var(--FC); font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 600; color: var(--ink); letter-spacing: 0.05em; margin-bottom: 16px; line-height: 1.3; }
+#vp-mem .vp-text p { font-size: 0.88rem; color: var(--ink-m); margin-bottom: 12px; line-height: 1.75; }
+#vp-mem .vp-text p strong { color: var(--oro-s); font-weight: 400; }
+#vp-mem .vp-loop { background: var(--ink); padding: 30px; border: 1px solid rgba(201,169,110,0.2); }
+#vp-mem .loop-title { font-family: var(--FC); font-size: 0.58rem; letter-spacing: 0.2em; color: var(--oro); display: block; margin-bottom: 22px; }
+#vp-mem .loop-step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+#vp-mem .loop-step:last-child { border-bottom: none; }
+#vp-mem .loop-dot { width: 7px; height: 7px; background: var(--oro); border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+#vp-mem .loop-step span { font-size: 0.82rem; color: rgba(245,236,216,0.7); line-height: 1.5; }
+#vp-mem .loop-step span strong { color: var(--oro-c); font-weight: 400; display: block; margin-bottom: 1px; }
+
+/* ── COSTRUTTORE DEEP DIVE ── */
+#vp-mem .vp-cost-section { background: var(--pg); padding: 80px 24px; border-top: 1px solid rgba(201,169,110,0.22); }
+#vp-mem .vp-cost-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+#vp-mem .vp-cost-text h2 { font-family: var(--FE); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 400; color: var(--ink); line-height: 1.3; margin-bottom: 18px; }
+#vp-mem .vp-cost-text h2 em { font-style: italic; color: var(--oro-s); }
+#vp-mem .vp-cost-text p { font-size: 0.88rem; color: var(--ink-m); line-height: 1.75; margin-bottom: 10px; }
+#vp-mem .vp-cost-list { list-style: none; margin-top: 22px; padding: 0; }
+#vp-mem .vp-cost-list li { font-size: 0.84rem; color: var(--ink-m); padding: 8px 0; border-bottom: 1px solid rgba(139,105,20,0.1); display: flex; align-items: flex-start; gap: 11px; line-height: 1.45; }
+#vp-mem .vp-cost-list li:last-child { border-bottom: none; }
+#vp-mem .li-dot { width: 5px; height: 5px; background: var(--oro); border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+#vp-mem .vp-cost-box { background: var(--ink); padding: 38px 34px; border: 1px solid rgba(201,169,110,0.22); }
+#vp-mem .cost-box-label { font-family: var(--FC); font-size: 0.57rem; letter-spacing: 0.2em; color: var(--oro); display: block; margin-bottom: 18px; }
+#vp-mem .cost-box-title { font-family: var(--FE); font-size: 1.4rem; color: var(--oro-c); font-weight: 400; margin-bottom: 26px; line-height: 1.3; }
+#vp-mem .cost-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); gap: 14px; }
+#vp-mem .cost-row:last-of-type { border-bottom: none; }
+#vp-mem .cr-l { font-size: 0.77rem; color: rgba(245,236,216,0.5); }
+#vp-mem .cr-v { font-family: var(--FC); font-size: 0.77rem; color: var(--oro); text-align: right; letter-spacing: 0.04em; }
+#vp-mem .cr-v.g { color: #5db87a; }
+#vp-mem .cost-total { margin-top: 10px; padding-top: 12px; border-top: 1px solid rgba(201,169,110,0.22); display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+#vp-mem .cost-total .cr-l { font-size: 0.82rem; color: rgba(245,236,216,0.8); }
+#vp-mem .cost-total .cr-v { font-family: var(--FC); font-size: 1rem; color: var(--oro); }
+#vp-mem .cost-note { margin-top: 18px; font-family: var(--FE); font-size: 0.88rem; color: rgba(245,236,216,0.45); font-style: italic; line-height: 1.5; border-top: 1px solid rgba(201,169,110,0.12); padding-top: 16px; }
+
+/* ── REFERRAL ── */
+#vp-mem .vp-ref-section { background: var(--ink); padding: 80px 24px; text-align: center; }
+#vp-mem .vp-ref-head { max-width: 580px; margin: 0 auto 52px; }
+#vp-mem .vp-ref-head h2 { font-family: var(--FC); font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 600; color: var(--oro-c); letter-spacing: 0.04em; margin-bottom: 14px; line-height: 1.35; }
+#vp-mem .vp-ref-head p { font-size: 0.88rem; color: rgba(245,236,216,0.55); line-height: 1.7; }
+#vp-mem .vp-ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2px; max-width: 880px; margin: 0 auto; }
+#vp-mem .vp-ref-card { background: #1e1c14; border: 1px solid rgba(201,169,110,0.1); padding: 28px 20px; text-align: center; }
+#vp-mem .vp-ref-card .rv { font-family: var(--FC); font-size: 2rem; font-weight: 700; color: var(--oro); display: block; margin-bottom: 2px; line-height: 1; }
+#vp-mem .vp-ref-card .rl { font-family: var(--FC); font-size: 0.70rem; letter-spacing: 0.2em; color: var(--oro-s); display: block; margin-bottom: 13px; }
+#vp-mem .vp-ref-card .ra { font-size: 0.78rem; color: rgba(245,236,216,0.6); line-height: 1.45; }
+#vp-mem .vp-ref-card .rp { display: inline-block; margin-top: 11px; font-size: 0.58rem; letter-spacing: 0.12em; font-family: var(--FC); padding: 3px 9px; border: 1px solid rgba(201,169,110,0.22); color: var(--oro-s); }
+
+/* ── FAQ ── */
+#vp-mem .vp-faq-section { background: var(--pg); padding: 80px 24px; }
+#vp-mem .vp-faq-inner { max-width: 700px; margin: 0 auto; }
+#vp-mem .vp-faq-head { text-align: center; margin-bottom: 44px; }
+#vp-mem .vp-faq-head h2 { font-family: var(--FC); font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 600; color: var(--ink); letter-spacing: 0.06em; }
+#vp-mem .vp-faq-item { border-bottom: 1px solid rgba(139,105,20,0.16); padding: 20px 0; }
+#vp-mem .vp-faq-item:first-of-type { border-top: 1px solid rgba(139,105,20,0.16); }
+#vp-mem .vp-faq-q { font-family: var(--FE); font-size: 1.05rem; font-weight: 600; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; user-select: none; line-height: 1.4; }
+#vp-mem .vp-faq-q .tog { font-size: 1rem; color: var(--oro); flex-shrink: 0; margin-top: 1px; transition: transform 0.25s; }
+#vp-mem .vp-faq-a { font-size: 0.875rem; color: var(--ink-m); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, margin-top 0.2s; }
+#vp-mem .vp-faq-item.open .vp-faq-a { max-height: 300px; margin-top: 12px; }
+#vp-mem .vp-faq-item.open .tog { transform: rotate(45deg); }
+
+/* ── CTA FINALE ── */
+#vp-mem .vp-cta-section { background: var(--ink); padding: 96px 24px; text-align: center; position: relative; overflow: hidden; }
+#vp-mem .vp-cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(201,169,110,0.09) 0%, transparent 60%); pointer-events: none; }
+#vp-mem .vp-cta-inner { max-width: 620px; margin: 0 auto; position: relative; }
+#vp-mem .vp-cta-inner h2 { font-family: var(--FE); font-size: clamp(1.7rem, 3.5vw, 2.7rem); font-weight: 400; color: var(--oro-c); line-height: 1.35; margin-bottom: 14px; }
+#vp-mem .vp-cta-inner h2 em { font-style: italic; color: var(--oro); }
+#vp-mem .vp-cta-inner p { font-size: 0.88rem; color: rgba(245,236,216,0.5); margin-bottom: 38px; line-height: 1.7; }
+#vp-mem a.vp-cta-btn {
+  display: inline-block !important;
+  padding: 15px 48px !important;
+  font-family: var(--FC) !important;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.22em !important;
+  text-decoration: none !important;
+  background: #C9A96E !important;
+  color: #1A1814 !important;
+  -webkit-text-fill-color: #1A1814 !important;
+  transition: background 0.2s !important;
+}
+#vp-mem a.vp-cta-btn:hover {
+  background: #d4b47a !important;
+  color: #1A1814 !important;
+  -webkit-text-fill-color: #1A1814 !important;
+}
+#vp-mem .vp-cta-sub { display: block; margin-top: 18px; font-size: 0.74rem; color: rgba(245,236,216,0.3); letter-spacing: 0.05em; }
+
+/* ── RESPONSIVE ── */
+@media(max-width: 680px) {
+  #vp-mem .vp-inner { grid-template-columns: 1fr; gap: 36px; }
+  #vp-mem .vp-cost-inner { grid-template-columns: 1fr; gap: 36px; }
+}
+@media(max-width: 600px) {
+  #vp-mem .vp-hero { padding: 80px 20px 72px; }
+  #vp-mem .vp-pillar { padding: 30px 22px; }
+  #vp-mem .vp-card { padding: 34px 26px 38px; }
+  #vp-mem .vp-sim-box { padding: 0 16px; }
+  #vp-mem .vp-cost-box { padding: 30px 26px; }
+}
+@media(max-width: 520px) {
+  #vp-mem .vp-sliders { grid-template-columns: 1fr; gap: 12px; }
+}
+</style>
+
+<!-- ── WRAPPER PRINCIPALE ── -->
+<div id="vp-mem">
+
+<!-- HERO -->
+<section class="vp-hero">
+  <div class="vp-hero-inner">
+    <span class="vp-eyebrow light">Vatican Privé · Club Culturale Privato</span>
+    <div class="vp-div"></div>
+    <h1>Diventare socio significa<br><em>scegliere come investire il proprio tempo</em></h1>
+    <p>La sede del Club in un palazzo del XVI secolo a pochi passi dal Vaticano. Una comunità selezionata. Nove format di eventi. Un sistema che cresce con te — e che può restituirti più di quanto investi.</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<div class="vp-intro">
+  <h2>Vatican Privé non è un abbonamento.<br>È una <strong>comunità di appartenenza</strong>.</h2>
+  <div class="vp-div"></div>
+  <p>Ogni livello di membership ti dà accesso a qualcosa che non si trova altrove: conversazioni vere, incontri che lasciano il segno, un luogo che ispira da solo.</p>
+</div>
+
+<!-- MEMBERSHIP CARDS -->
+<section class="vp-mem-section">
+  <div class="vp-mem-head">
+    <span class="vp-eyebrow light">I Tre Livelli</span>
+    <div class="vp-div"></div>
+    <h2>Scegli il tuo posto nel Salotto</h2>
+  </div>
+  <div class="vp-cards">
+
+    <!-- OSSERVATORE -->
+    <div class="vp-card">
+      <span class="vp-card-lv">Livello I</span>
+      <h3>Osservatore</h3>
+      <div class="vp-price"><sup>€</sup>250</div>
+      <span class="vp-price-sub">~€ 20,83 / mese · rinnovo annuale</span>
+      <div class="vp-div-card"></div>
+      <ul>
+        <li><span class="vp-dot"></span>Accesso a tutti e 9 i format di eventi</li>
+        <li><span class="vp-dot"></span>Priorità posti rispetto al pubblico</li>
+        <li><span class="vp-dot"></span>1 Cena dei Membri inclusa · val. €120</li>
+        <li><span class="vp-dot"></span>Accumulo Crediti VP (tasso base)</li>
+        <li><span class="vp-dot"></span>Affitto spazio a €170/ora</li>
+        <li><span class="vp-dot off"></span><span style="opacity:.45;">Sconto sugli eventi</span></li>
+        <li><span class="vp-dot off"></span><span style="opacity:.45;">Ospiti in evento</span></li>
+        <li><span class="vp-dot off"></span><span style="opacity:.45;">Crediti VP di benvenuto</span></li>
+      </ul>
+      <a href="https://api.whatsapp.com/send/?phone=393203194044&text=Buongiorno%2C+sono+interessato%2Fa+alla+membership+Osservatore+di+Vatican+Priv%C3%A9." class="vp-card-cta">Richiedi l'accesso</a>
+    </div>
+
+    <!-- ANIMA DEL CLUB -->
+    <div class="vp-card">
+      <span class="vp-card-lv">Livello II</span>
+      <h3>Anima del Club</h3>
+      <div class="vp-price"><sup>€</sup>600</div>
+      <span class="vp-price-sub">~€ 50 / mese · rinnovo annuale</span>
+      <div class="vp-div-card"></div>
+      <ul>
+        <li class="hl"><span class="vp-dot"></span>−15% su ogni evento</li>
+        <li class="hl"><span class="vp-dot"></span>50 Crediti VP di benvenuto <em style="font-size:.8em;opacity:.7;">(90 gg)</em></li>
+        <li class="hl"><span class="vp-dot"></span>2 Cene dei Membri · val. €240</li>
+        <li><span class="vp-dot"></span>1 ospite per serata senza tessera</li>
+        <li><span class="vp-dot"></span>Accumulo VP a tasso intermedio</li>
+        <li><span class="vp-dot"></span>Affitto spazio a €150/ora</li>
+        <li><span class="vp-dot"></span>Accesso a tutti gli eventi e format</li>
+        <li><span class="vp-dot off"></span><span style="opacity:.45;">Riunioni private investitori</span></li>
+      </ul>
+      <a href="https://api.whatsapp.com/send/?phone=393203194044&text=Buongiorno%2C+sono+interessato%2Fa+alla+membership+Anima+del+Club+di+Vatican+Priv%C3%A9." class="vp-card-cta">Richiedi l'accesso</a>
+    </div>
+
+    <!-- COSTRUTTORE -->
+    <div class="vp-card feat">
+      <div class="vp-card-badge">Il più vantaggioso</div>
+      <span class="vp-card-lv">Livello III</span>
+      <h3>Costruttore</h3>
+      <div class="vp-price"><sup>€</sup>960</div>
+      <span class="vp-price-sub">~€ 80 / mese · rinnovo annuale</span>
+      <div class="vp-div-card"></div>
+      <ul>
+        <li class="hl"><span class="vp-dot"></span>−33% su ogni evento</li>
+        <li class="hl"><span class="vp-dot"></span>150 Crediti VP di benvenuto <em style="font-size:.8em;opacity:.7;">(90 gg)</em></li>
+        <li class="hl"><span class="vp-dot"></span>3 Cene dei Membri · val. €360</li>
+        <li class="hl"><span class="vp-dot"></span>Organizza eventi nel palazzo</li>
+        <li class="hl"><span class="vp-dot"></span>Riunioni private investitori</li>
+        <li><span class="vp-dot"></span>2 ospiti per serata senza tessera</li>
+        <li><span class="vp-dot"></span>Accumulo VP a tasso pieno</li>
+        <li><span class="vp-dot"></span>Affitto spazio a €120/ora</li>
+      </ul>
+      <a href="https://api.whatsapp.com/send/?phone=393203194044&text=Buongiorno%2C+sono+interessato%2Fa+alla+membership+Costruttore+di+Vatican+Priv%C3%A9." class="vp-card-cta">Richiedi l'accesso</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- PILLARS -->
+<div class="vp-pillars">
+  <div class="vp-pillar">
+    <span class="vp-pillar-num">I</span>
+    <h3>Accesso Prioritario agli Eventi</h3>
+    <p>I soci hanno sempre la precedenza sui posti. Gli eventi più richiesti si esauriscono in poche ore — tu sei già al sicuro.</p>
+  </div>
+  <div class="vp-pillar">
+    <span class="vp-pillar-num">II</span>
+    <h3>Sconti Reali sulle Esperienze</h3>
+    <p>Dal −15% al −33% su ogni evento, incluse le serate da €250 come Il Conclave. Gli sconti si accumulano mese dopo mese.</p>
+  </div>
+  <div class="vp-pillar">
+    <span class="vp-pillar-num">III</span>
+    <h3>Cene dei Membri Incluse</h3>
+    <p>Da 1 a 3 Cene dei Membri riservate all'anno — non in vendita, solo per soci. Un valore fino a €360 già incluso nella quota.</p>
+  </div>
+  <div class="vp-pillar">
+    <span class="vp-pillar-num">IV</span>
+    <h3>Un Sistema che Ripaga</h3>
+    <p>I Crediti VP si accumulano ad ogni partecipazione e si trasformano in sconti reali sugli eventi e sul rinnovo annuale.</p>
+  </div>
+</div>
+
+<!-- SIMULATORE -->
+<section class="vp-sim-section">
+  <div style="text-align:center;padding:72px 24px 40px;">
+    <span class="vp-eyebrow light">Simulatore Interattivo</span>
+    <div class="vp-div"></div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:400;color:#F5ECD8;margin-bottom:8px;">Calcola il tuo vantaggio reale</h2>
+    <p style="font-size:.88rem;color:rgba(245,236,216,.45);">Imposta i tuoi parametri — il simulatore aggiorna tutto in tempo reale.</p>
+  </div>
+  <div class="vp-sim-box">
+    <div class="vp-tier-btns">
+      <button class="vp-tb" onclick="vpSetT(0)">
+        <span class="tn">Osservatore</span>
+        <span class="tp">€ 250</span>
+      </button>
+      <button class="vp-tb" onclick="vpSetT(1)">
+        <span class="tn">Anima del Club</span>
+        <span class="tp">€ 600</span>
+      </button>
+      <button class="vp-tb active" onclick="vpSetT(2)">
+        <span class="tn">Costruttore</span>
+        <span class="tp">€ 960</span>
+        <span class="tbadge">Il più vantaggioso</span>
+      </button>
+    </div>
+    <div class="vp-sliders">
+      <div class="vp-sg">
+        <div class="vp-sl-lbl">eventi / mese <b id="vp-ev-v">4</b></div>
+        <input type="range" id="vp-ev-sl" min="1" max="6" step="1" value="4" oninput="vpRender()">
+      </div>
+      <div class="vp-sg">
+        <div class="vp-sl-lbl">ore spazio / anno <b id="vp-sp-v">0</b></div>
+        <input type="range" id="vp-sp-sl" min="0" max="100" step="1" value="0" oninput="vpRender()">
+      </div>
+      <div class="vp-sg">
+        <div class="vp-sl-lbl">ospiti portati / anno <b id="vp-rf-v">5</b></div>
+        <input type="range" id="vp-rf-sl" min="0" max="20" step="1" value="5" oninput="vpRender()">
+      </div>
+    </div>
+    <div class="vp-tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Osservatore</th>
+            <th>Anima</th>
+            <th>Costruttore</th>
+          </tr>
+        </thead>
+        <tbody id="vp-stb"></tbody>
+      </table>
+    </div>
+    <div class="vp-sum-grid" id="vp-ssg"></div>
+    <div class="vp-verd" id="vp-svd"></div>
+  </div>
+</section>
+
+<!-- TABELLA VALORE NETTO -->
+<section class="vp-value-section">
+  <span class="vp-eyebrow" style="text-align:center;display:block;margin-bottom:10px;">Il valore reale</span>
+  <h2>La quota include già <em>più di quanto appare</em></h2>
+  <div class="vp-div"></div>
+  <p class="lead">Le Cene dei Membri sono esperienze esclusive riservate ai soci — non si vendono. Il loro valore è già compreso nella quota.</p>
+  <div class="vtbl-wrap">
+    <table class="vtbl">
+      <thead>
+        <tr>
+          <th style="text-align:left;"></th>
+          <th>Osservatore</th>
+          <th>Anima</th>
+          <th>Costruttore</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Quota annuale</td>
+          <td>€ 250</td><td>€ 600</td><td>€ 960</td>
+        </tr>
+        <tr>
+          <td>Valore Cene dei Membri incluse</td>
+          <td>€ 120</td><td>€ 240</td><td>€ 360</td>
+        </tr>
+        <tr>
+          <td>Quota effettiva (al netto delle Cene)</td>
+          <td class="vpos">€ 130</td><td class="vpos">€ 360</td><td class="vpos">€ 600</td>
+        </tr>
+        <tr>
+          <td colspan="4">+ sconto del 33% su ogni evento aggiuntivo per il Costruttore, più VP e referral</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CREDITI VP -->
+<section class="vp-section">
+  <div class="vp-inner">
+    <div class="vp-text">
+      <span class="vp-eyebrow">Crediti Vatican Privé</span>
+      <div class="vp-div left"></div>
+      <h2>Il sistema che trasforma la partecipazione in guadagno</h2>
+      <p>Ogni euro speso in eventi genera Crediti VP automaticamente. Si accumulano senza fretta e si usano come <strong>sconto diretto sugli eventi</strong> (fino al 50% del prezzo) o come <strong>sconto sul rinnovo annuale</strong>.</p>
+      <p>Un socio Costruttore attivo può ridurre il rinnovo fino a <strong>€144 in meno</strong>. Un socio Anima fino a <strong>€90 in meno</strong>. I 150 VP benvenuto del Costruttore valgono €150 disponibili già nei primi 90 giorni.</p>
+    </div>
+    <div class="vp-loop">
+      <span class="loop-title">Il Loop dei Crediti VP</span>
+      <div class="loop-step"><div class="loop-dot"></div><span><strong>Partecipi a un evento</strong>Accumuli VP in automatico ad ogni partecipazione</span></div>
+      <div class="loop-step"><div class="loop-dot"></div><span><strong>I VP si accumulano</strong>Più sei attivo, più crediti hai a disposizione</span></div>
+      <div class="loop-step"><div class="loop-dot"></div><span><strong>Usi i VP come sconto</strong>Fino al 50% del prezzo del prossimo evento</span></div>
+      <div class="loop-step"><div class="loop-dot"></div><span><strong>Rinnovi con sconto</strong>I VP diventano riduzione della quota annuale</span></div>
+      <div class="loop-step"><div class="loop-dot"></div><span><strong>Il ciclo si rinnova</strong>Ogni anno più conveniente del precedente</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COSTRUTTORE DEEP DIVE -->
+<section class="vp-cost-section">
+  <div class="vp-cost-inner">
+    <div class="vp-cost-text">
+      <span class="vp-eyebrow">Livello Costruttore</span>
+      <div class="vp-div left"></div>
+      <h2>Chi costruisce il club,<br><em>ne diventa parte</em></h2>
+      <p>Il Costruttore non è semplicemente un socio con più vantaggi. È una figura attiva — può proporre eventi, portare ospiti alle riunioni degli investitori e usare gli spazi del palazzo per le proprie iniziative.</p>
+      <p>Con accumulo VP a tasso pieno e 150 crediti di benvenuto, il Costruttore che partecipa regolarmente può rendere gratuiti alcuni eventi e ridurre sensibilmente il costo della membership.</p>
+      <ul class="vp-cost-list">
+        <li><div class="li-dot"></div>Organizza eventi culturali o professionali nel palazzo</li>
+        <li><div class="li-dot"></div>Accesso alle riunioni private con investitori</li>
+        <li><div class="li-dot"></div>2 ospiti per serata senza tessera</li>
+        <li><div class="li-dot"></div>Priorità assoluta sui posti sold out</li>
+        <li><div class="li-dot"></div>150 VP di benvenuto da usare subito</li>
+        <li><div class="li-dot"></div>Accumulo VP a tasso pieno: 0,10 VP per €1</li>
+        <li><div class="li-dot"></div>Affitto spazio a €120/ora (−30% oltre 4 ore)</li>
+      </ul>
+    </div>
+    <div class="vp-cost-box">
+      <span class="cost-box-label">Esempio concreto — Anno tipo</span>
+      <div class="cost-box-title">Costruttore · 4 eventi/mese · 5 referral</div>
+      <div class="cost-row"><span class="cr-l">Quota annuale</span><span class="cr-v">€ 960</span></div>
+      <div class="cost-row"><span class="cr-l">3 Cene dei Membri incluse</span><span class="cr-v g">− € 360</span></div>
+      <div class="cost-row"><span class="cr-l">Sconto −33% su 48 eventi/anno</span><span class="cr-v g">− € 1.188</span></div>
+      <div class="cost-row"><span class="cr-l">VP accumulati → sconto rinnovo</span><span class="cr-v g">fino a − € 144</span></div>
+      <div class="cost-row"><span class="cr-l">VP da 5 referral portati</span><span class="cr-v g">+ 270 VP</span></div>
+      <div class="cost-total">
+        <span class="cr-l">Valore totale ricevuto</span>
+        <span class="cr-v" style="font-size:1.05rem;">€ 1.962+</span>
+      </div>
+      <p class="cost-note">Il club può restituire più di quanto costa. Non come schema di guadagno — ma come comunità che premia chi partecipa davvero.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REFERRAL -->
+<section class="vp-ref-section">
+  <div class="vp-ref-head">
+    <span class="vp-eyebrow light">Crediti Extra</span>
+    <div class="vp-div"></div>
+    <h2>Porta le persone giuste.<br>Guadagna crediti reali.</h2>
+    <p>Ogni volta che un tuo contatto diventa socio ricevi Crediti VP direttamente nel tuo profilo. Non è un programma referral commerciale — è il modo in cui Vatican Privé riconosce chi contribuisce a costruire la comunità.</p>
+  </div>
+  <div class="vp-ref-grid">
+    <div class="vp-ref-card">
+      <span class="rv">60</span><span class="rl">VP · Crediti Vatican Privé</span>
+      <p class="ra">Il tuo ospite diventa <strong>Costruttore</strong></p>
+      <span class="rp">Costruttore</span>
+    </div>
+    <div class="vp-ref-card">
+      <span class="rv">30</span><span class="rl">VP · Crediti Vatican Privé</span>
+      <p class="ra">Il tuo ospite diventa <strong>Anima del Club</strong></p>
+      <span class="rp">Costruttore</span>
+    </div>
+    <div class="vp-ref-card">
+      <span class="rv">30</span><span class="rl">VP · Crediti Vatican Privé</span>
+      <p class="ra">Il tuo ospite diventa <strong>Costruttore</strong></p>
+      <span class="rp">Anima del Club</span>
+    </div>
+    <div class="vp-ref-card">
+      <span class="rv">15</span><span class="rl">VP · Crediti Vatican Privé</span>
+      <p class="ra">Il tuo ospite diventa <strong>Anima del Club</strong></p>
+      <span class="rp">Anima del Club</span>
+    </div>
+    <div class="vp-ref-card">
+      <span class="rv">15</span><span class="rl">VP · Crediti Vatican Privé</span>
+      <p class="ra">Partecipi a <strong>3 eventi nello stesso mese</strong></p>
+      <span class="rp">Costruttore</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="vp-faq-section">
+  <div class="vp-faq-inner">
+    <div class="vp-faq-head">
+      <span class="vp-eyebrow" style="text-align:center;display:block;margin-bottom:10px;">Domande Frequenti</span>
+      <h2>Quello che vuoi sapere</h2>
+    </div>
+    <div class="vp-faq-item">
+      <div class="vp-faq-q"><span>Vatican Privé è aperto al pubblico o solo su invito?</span><span class="tog">+</span></div>
+      <div class="vp-faq-a">Vatican Privé è un club privato. Alcuni eventi sono accessibili anche al pubblico esterno, ma i posti riservati ai soci hanno sempre la precedenza. L'accesso alla membership avviene su richiesta personale — non si acquista direttamente online, si richiede.</div>
+    </div>
+    <div class="vp-faq-item">
+      <div class="vp-faq-q"><span>Posso partecipare a un evento prima di iscrivermi?</span><span class="tog">+</span></div>
+      <div class="vp-faq-a">Sì. Alcuni format prevedono posti pubblici limitati per consentire a nuovi ospiti di vivere l'esperienza prima di iscriversi. Scrivi direttamente a Nicolaj per capire qual è l'evento più adatto come primo incontro.</div>
+    </div>
+    <div class="vp-faq-item">
+      <div class="vp-faq-q"><span>Come funzionano i Crediti VP?</span><span class="tog">+</span></div>
+      <div class="vp-faq-a">I Crediti Vatican Privé si accumulano automaticamente ad ogni evento a cui partecipi. Il tasso va da 0,02 VP (Osservatore) a 0,10 VP (Costruttore) per ogni euro speso. 1 VP vale €1 di sconto su qualsiasi evento o sul rinnovo annuale, con un cap del 50% per singola applicazione.</div>
+    </div>
+    <div class="vp-faq-item">
+      <div class="vp-faq-q"><span>Posso affittare il palazzo per eventi privati?</span><span class="tog">+</span></div>
+      <div class="vp-faq-a">Sì, tutti i soci possono richiedere l'affitto degli spazi. La tariffa oraria è: Osservatore €170/h, Anima del Club €150/h, Costruttore €120/h. Per prenotazioni superiori a 4 ore si applica automaticamente uno sconto del 30%. I soci Costruttore possono anche organizzare eventi del club nel palazzo.</div>
+    </div>
+    <div class="vp-faq-item">
+      <div class="vp-faq-q"><span>È possibile portare ospiti agli eventi?</span><span class="tog">+</span></div>
+      <div class="vp-faq-a">Sì, a partire dal livello Anima del Club. Un socio Anima può portare 1 ospite per serata senza tessera. Un socio Costruttore ne può portare 2. L'ospite accede al prezzo Osservatore dell'evento.</div>
+    </div>
+    <div class="vp-faq-item">
+      <div class="vp-faq-q"><span>Come faccio a rinnovare o fare upgrade?</span><span class="tog">+</span></div>
+      <div class="vp-faq-a">Il rinnovo avviene annualmente. I Crediti VP accumulati si trasformano automaticamente in sconto sulla quota, fino al 50%. L'upgrade è possibile in qualsiasi momento — i VP già accumulati vengono mantenuti e il differenziale di quota calcolato proporzionalmente.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="vp-cta-section">
+  <div class="vp-cta-inner">
+    <span class="vp-eyebrow light">Inizia qui</span>
+    <div class="vp-div"></div>
+    <h2>Il tuo primo passo<br>è una <em>conversazione</em></h2>
+    <p>Non esiste un pulsante "acquista ora". Vatican Privé funziona su presentazione — scrivi direttamente a Nicolaj, racconta chi sei e cosa cerchi. La conversazione è già parte dell'esperienza.</p>
+    <a href="https://api.whatsapp.com/send/?phone=393203194044&text=Buongiorno+Nicolaj%2C+sono+interessato%2Fa+a+conoscere+Vatican+Priv%C3%A9+e+valutare+una+membership." class="vp-cta-btn">Scrivimi su WhatsApp</a>
+    <span class="vp-cta-sub">Via della Conciliazione 44, Roma · info@vaticanprive.com</span>
+  </div>
+</section>
+
+</div><!-- /vp-mem -->
+
+<!-- ── SCRIPT SIMULATORE ── -->
+<script>
+(function(){
+  const TS=[
+    {name:'Osservatore',quota:250,disc:0,rate:0.02,welcome:0,cene:1,cena_v:120,ref:[0,0],spH:170},
+    {name:'Anima del Club',quota:600,disc:0.15,rate:0.05,welcome:50,cene:2,cena_v:240,ref:[15,30],spH:150},
+    {name:'Costruttore',quota:960,disc:0.33,rate:0.10,welcome:150,cene:3,cena_v:360,ref:[60,30],spH:120}
+  ];
+  const AVG=75;
+  let AT=2;
+
+  window.vpSetT=function(i){
+    AT=i;
+    document.querySelectorAll('#vp-mem .vp-tb').forEach((b,j)=>b.classList.toggle('active',j===i));
+    vpRender();
+  };
+
+  function fe(n){return '€ '+Math.round(n).toLocaleString('it-IT');}
+  function fvp(n){return Math.round(n)+' VP';}
+  function spCost(t,h){if(!h)return 0;const b=t.spH*h;return h>4?Math.round(b*0.7):b;}
+  function spSave(i,h){if(!h||i===0)return 0;return spCost(TS[0],h)-spCost(TS[i],h);}
+
+  function calc(t,i,evM,h,refs){
+    const evY=evM*12,sp=evY*AVG;
+    const riEv=Math.round(sp*t.disc);
+    const spS=sp-riEv;
+    const vpEv=Math.round(spS*t.rate);
+    const vpT=vpEv+t.welcome;
+    const vpR=Math.min(vpT,Math.round(t.quota*0.5));
+    const refVP=refs?Math.round(refs*0.6)*t.ref[0]+Math.round(refs*0.4)*t.ref[1]:0;
+    const spR=spSave(i,h);
+    const tot=t.cena_v+riEv+vpR+refVP+spR;
+    return{riEv,vpEv,vpT,vpR,refVP,spR,tot,roi:Math.round((tot/t.quota)*100),netta:Math.max(0,t.quota-t.cena_v-vpR)};
+  }
+
+  window.vpRender=function(){
+    const evM=+document.getElementById('vp-ev-sl').value;
+    const h=+document.getElementById('vp-sp-sl').value;
+    const refs=+document.getElementById('vp-rf-sl').value;
+    document.getElementById('vp-ev-v').textContent=evM;
+    document.getElementById('vp-sp-v').textContent=h;
+    document.getElementById('vp-rf-v').textContent=refs;
+    const R=TS.map((t,i)=>calc(t,i,evM,h,refs));
+
+    const rows=[
+      {l:'Sconto su ogni evento',f:i=>TS[i].disc>0?'−'+Math.round(TS[i].disc*100)+'%':'—'},
+      {l:'Cene dei Membri incluse',f:i=>TS[i].cene+(TS[i].cene===1?' cena':' cene')+' · '+fe(TS[i].cena_v),pos:1},
+      {sep:'VANTAGGI DA '+(evM*12)+' EVENTI/ANNO'},
+      {l:'Risparmio da sconto eventi',f:i=>R[i].riEv>0?fe(R[i].riEv):'—',pos:1},
+      {l:'Crediti VP accumulati',f:i=>R[i].vpEv>0?fvp(R[i].vpEv):'—',gld:1},
+      {l:'VP benvenuto',f:i=>TS[i].welcome>0?fvp(TS[i].welcome):'—',gld:1},
+      {l:'VP → sconto rinnovo',f:i=>R[i].vpR>0?fe(R[i].vpR):'—',pos:1},
+      ...(h>0?[
+        {sep:'SPAZIO · '+h+' ORE'+(h>4?' (sconto −30% incluso)':'')},
+        {l:'Tariffa oraria',f:i=>fe(TS[i].spH)+'/h'},
+        {l:'Costo totale affitto',f:i=>fe(spCost(TS[i],h))},
+        {l:'Risparmio vs tariffa piena',f:i=>R[i].spR>0?fe(R[i].spR):'—',pos:1},
+      ]:[]),
+      ...(refs>0?[
+        {sep:'OSPITI PORTATI · '+refs+(refs===1?' PERSONA':' PERSONE')},
+        {l:'Crediti VP da referral',f:i=>R[i].refVP>0?fvp(R[i].refVP):'—',gld:1},
+        {l:'Valore crediti referral',f:i=>R[i].refVP>0?fe(R[i].refVP):'—',pos:1},
+      ]:[]),
+      {sep:'BILANCIO FINALE'},
+      {l:'Quota effettiva netta',f:i=>fe(R[i].netta),hi:1},
+      {l:'Valore totale ricevuto',f:i=>fe(R[i].tot),pos:1,key:1},
+      {l:'ROI membership',f:i=>R[i].roi+'%',gld:1,key:1},
+    ];
+
+    let h2='';
+    rows.forEach(r=>{
+      if(r.sep){h2+=`<tr class="sep"><td colspan="4">${r.sep}</td></tr>`;return;}
+      h2+='<tr>';h2+=`<td>${r.l}</td>`;
+      for(let i=0;i<3;i++){
+        const ia=i===AT,v=r.f(i);
+        let c=ia?'ca cac ':'';
+        if(r.pos)c+='pos ';else if(r.gld)c+='gld ';else if(r.hi&&ia)c+='hi ';else if(ia)c+='hi ';else c+='dim ';
+        h2+=`<td class="${c.trim()}">${v}</td>`;
+      }
+      h2+='</tr>';
+    });
+    document.getElementById('vp-stb').innerHTML=h2;
+
+    const r=R[AT];
+    document.getElementById('vp-ssg').innerHTML=[
+      {l:'QUOTA NETTA',v:fe(r.netta),s:'al netto di cene e VP'},
+      {l:'VALORE RICEVUTO',v:fe(r.tot),s:'tutto incluso'},
+      {l:'ROI MEMBERSHIP',v:r.roi+'%',s:'valore vs quota pagata'},
+    ].map(s=>`<div class="sc"><span class="slb">${s.l}</span><span class="svl">${s.v}</span><span class="ssu">${s.s}</span></div>`).join('');
+
+    let vt='';
+    if(AT===0)vt=`Con ${evM} eventi/mese come <strong>Osservatore</strong>, accumuli VP e accedi con priorità. Il salto ad <strong>Anima del Club</strong> attiva il −15% e 2 Cene incluse.`;
+    else if(AT===1)vt=`Come <strong>Anima del Club</strong>, il −15% e i 50 VP benvenuto fanno subito la differenza. Con ${evM} eventi/mese il rinnovo scende a <strong>${fe(r.netta)}</strong> effettivi.`;
+    else vt=`Come <strong>Costruttore</strong> con ${evM} eventi/mese${refs>0?', '+refs+' referral':''}${h>0?', '+h+' ore di spazio':''}, il valore ricevuto è <strong>${fe(r.tot)}</strong> — ${r.roi>=100?'il club <strong>restituisce più di quanto costa</strong>.':`un ROI del ${r.roi}% sulla quota annuale.`}`;
+
+    document.getElementById('vp-svd').innerHTML=`<div class="vi"></div><div class="vt">${vt}</div>`;
+  };
+
+  document.querySelectorAll('#vp-mem .vp-faq-q').forEach(q=>{
+    q.addEventListener('click',()=>{
+      const it=q.closest('.vp-faq-item'),op=it.classList.contains('open');
+      document.querySelectorAll('#vp-mem .vp-faq-item').forEach(i=>i.classList.remove('open'));
+      if(!op)it.classList.add('open');
+    });
+  });
+
+  vpRender();
+})();
+</script>
