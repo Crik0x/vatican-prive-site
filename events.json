@@ -378,9 +378,6 @@
       }
     }
   ],
-
-// PROSSIMI EVENTI IN PROGRAMMA — da aggiornare regolarmente, almeno 2 settimane prima dell'evento
-// ULTIMO EVENTO evt_009
   "events": [
     {
       "id": "evt_009",
@@ -446,7 +443,6 @@
         "registrations_count": 0
       }
     },
-    // NEXT
     {
       "id": "evt_010",
       "format_id": "aperitivi_divini",
@@ -511,7 +507,6 @@
         "registrations_count": 0
       }
     },
-// next
     {
       "id": "evt_003",
       "format_id": "conclave",
@@ -576,7 +571,6 @@
         "registrations_count": 0
       }
     },
-    // NEXT
     {
       "id": "evt_004",
       "format_id": "cena_membri",
@@ -641,7 +635,6 @@
         "registrations_count": 0
       }
     },
-    // next
     {
       "id": "evt_005",
       "format_id": "menti_salotto",
@@ -706,7 +699,6 @@
         "registrations_count": 0
       }
     },
-    // next
     {
       "id": "evt_006",
       "format_id": "fuori_mura",
