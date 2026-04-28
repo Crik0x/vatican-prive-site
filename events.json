@@ -1,6 +1,6 @@
 {
   "club": "Vatican Privé",
-  "last_updated": "2026-04-21T13:20:00",
+  "last_updated": "2026-04-28T14:00:00",
   "version": "2.0",
 
   "cities": [
@@ -439,8 +439,8 @@
       "status": "available",
       "google_calendar_event_id": "https://calendar.app.google/LwD4fxagR68dYcpj9",
       "_meta": {
-        "created_at": "2026-04-16T13:00:00",
-        "updated_at": "2026-04-17T12:00:00",
+        "created_at": "2026-04-28T12:00:00",
+        "updated_at": "2026-04-28T13:00:00",
         "notes_internal": "",
         "revenue_estimated": 0,
         "registrations_count": 0
@@ -453,8 +453,8 @@
       "city": "roma",
       "edition": 2,
       "title": "Aperitivi diVini",
-      "date_start": "2026-05-01T20:00:00",
-      "date_end":   "2026-05-01T22:30:00",
+      "date_start": "2026-05-02T20:00:00",
+      "date_end":   "2026-05-02T22:30:00",
       "visibility": "public",
       "published": true,
       "featured": false,
@@ -504,8 +504,8 @@
       "status": "available",
       "google_calendar_event_id": "https://calendar.app.google/4tLnhVq3mL9FgbZT7",
       "_meta": {
-        "created_at": "2026-04-16T13:00:00",
-        "updated_at": "2026-04-17T12:00:00",
+        "created_at": "2026-04-28T12:00:00",
+        "updated_at": "2026-04-28T13:00:00",
         "notes_internal": "",
         "revenue_estimated": 0,
         "registrations_count": 0
