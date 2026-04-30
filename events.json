@@ -1,6 +1,6 @@
 {
   "club": "Vatican Privé",
-  "last_updated": "2026-04-30T15:00:00",
+  "last_updated": "2026-05-01T00:00:00",
   "version": "2.0",
 
   "cities": [
@@ -753,7 +753,7 @@
         "description_override": "",
         "slug_override": ""
       },
-      "status": "coming_soon",
+      "status": "sold_out",
       "google_calendar_event_id": "",
       "_meta": {
         "created_at": "2026-04-16T13:00:00",
