@@ -68,7 +68,7 @@
       "status": "completed",
       "archived_at": "2026-04-21T17:00:00",
       "notes": "Evento del 18 aprile - archiviato automaticamente"
-    }
+    },
     {
       "id": "evt_007",
       "format_id": "salotto_damascati",
@@ -93,6 +93,20 @@
       "status": "completed",
       "archived_at": "2026-04-27T17:00:00",
       "notes": "Evento del 25 aprile - archiviato automaticamente"
-    }
+    },
+    {
+      "id": "evt_009",
+      "format_id": "conclave",
+      "city": "roma",
+      "edition": 1,
+      "title": "Il Conclave",
+      "date_start": "2026-05-03T12:00:00",
+      "date_end":   "2026-05-03T21:00:00",
+      "visibility": "members",
+      "status": "completed",
+      "archived_at": "2026-05-05T17:00:00",
+      "notes": "Evento del 3 maggio - archiviato automaticamente"
+    },
+
   ]
 }
