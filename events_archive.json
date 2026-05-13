@@ -107,6 +107,18 @@
       "archived_at": "2026-05-05T17:00:00",
       "notes": "Evento del 3 maggio - archiviato automaticamente"
     },
-
+{
+      "id": "evt_008",
+      "format_id": "aperitivi_divini",
+      "city": "roma",
+      "edition": 2,
+      "title": "Aperitivi diVini",
+      "date_start": "2026-05-25T20:00:00",
+      "date_end":   "2026-05-25T22:30:00",
+      "visibility": "public",
+      "status": "completed",
+      "archived_at": "2026-04-27T17:00:00",
+      "notes": "Evento del 25 aprile - archiviato automaticamente"
+    },
   ]
 }
